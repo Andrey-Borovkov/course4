@@ -2,18 +2,20 @@
 
 */
 
-Console.Write("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine());
 int SumOfCount(int number)
 {
     
     int result = 0;
     while (number > 0)
     {
-       number = number % 10;
-       result = result + number;
+       int ostatok = number % 10;
+       result = result + ostatok;
+       number = number / 10;
         
     }
     return result;
 }
+
+Console.Write("Введите число: ");
+int num = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine(SumOfCount(num));
