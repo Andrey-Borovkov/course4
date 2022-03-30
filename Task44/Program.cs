@@ -26,7 +26,7 @@ void PrintFibonacciNumbers(int[] InputArray)
     }
 }
 
-Console.Write("Введите: ");
+Console.Write("Введите количество чисел Чибоначи: ");
 int Number = Convert.ToInt32(Console.ReadLine());
 int[] ArrayOfFibonacciNumbers = CreateFibonacciArray(Number);
 PrintFibonacciNumbers(ArrayOfFibonacciNumbers);
