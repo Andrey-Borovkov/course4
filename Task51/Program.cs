@@ -23,7 +23,7 @@ void PrintArray(int[,] PrintedArray)
     {
         for (int j = 0; j < PrintedArray.GetLength(1); j++)
         {
-            Console.Write($"{PrintedArray[i, j]} ");
+            Console.Write($"{PrintedArray[i, j]} \t");
         }
         Console.WriteLine();
     }
