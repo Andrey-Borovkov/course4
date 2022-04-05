@@ -33,9 +33,9 @@ void Print2DArray(int[,] PrintedArray)
 double[] AverageOfColumns(int[,] array2D)
 {
     double[] array = new double[array2D.GetLength(1)];
-    for (int i = 0; i < array2D.GetLength(0); i++)
+    for (int i = 0; i < array2D.GetLength(1); i++)
     {
-        for (int j = 0; j < array2D.GetLength(1); j++)
+        for (int j = 0; j < array2D.GetLength(0); j++)
         {
             array[i] += array2D[j, i];
         }
