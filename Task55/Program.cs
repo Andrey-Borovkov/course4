@@ -40,8 +40,15 @@ Console.Write("Введите количество строк массива: ")
 int numbersOfLines = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов массива: ");
 int numbersOfColumns = Convert.ToInt32(Console.ReadLine());
-int[,] Array = Create2DArray(numbersOfLines, numbersOfColumns);
-Print2DArray(Array);
-Console.WriteLine();
-int[,] newArray = ReplaceingRowsWithColumns(Array);
-Print2DArray(newArray);
+if (numbersOfLines == numbersOfColumns)
+{
+    int[,] Array = Create2DArray(numbersOfLines, numbersOfColumns);
+    Print2DArray(Array);
+    Console.WriteLine();
+    int[,] newArray = ReplaceingRowsWithColumns(Array);
+    Print2DArray(newArray);
+}
+else
+{
+    Console.WriteLine("Количество строк не равно количеству столбцов массива");
+}
