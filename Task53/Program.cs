@@ -27,11 +27,11 @@ void Print2DArray(int[,] PrintedArray)
 int[,] ChangeColumnsArray(int[,] inputArray)
 {
     int tempValue = new int();
-    for (int i = 0; i < inputArray.GetLength(0); i++)
+    for (int i = 0; i < inputArray.GetLength(1); i++)
     {
-        tempValue = inputArray[0, i];
-        inputArray[0, i] = inputArray[inputArray.GetLength(0) - 1, i];
-        inputArray[inputArray.GetLength(0) - 1, i] = tempValue;
+        tempValue = inputArray[inputArray.GetLength(0)-1, i];;
+        inputArray[inputArray.GetLength(0)-1, i] = inputArray[0, i];
+        inputArray[0, i] = tempValue;
     }
     return inputArray;
 }
@@ -43,4 +43,4 @@ int[,] Array = Create2DArray(numbersOfLines, numbersOfColumns);
 Print2DArray(Array);
 Console.WriteLine();
 int[,] changedArray = ChangeColumnsArray(Array);
-Print2DArray(Array);
+Print2DArray(changedArray);
