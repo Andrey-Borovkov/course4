@@ -24,17 +24,48 @@ void Print2DArray(int[,] PrintedArray)
         Console.WriteLine();
     }
 }
-int[,] MatrixMultiplication (int[,] FirstArray, int[,] SecondArray)
+int[,] MatrixMultiplication(int[,] FirstArray, int[,] SecondArray)
 {
     int[,] matrix = new int[FirstArray.GetLength(0), SecondArray.GetLength(1)];
     for (int i = 0; i < FirstArray.GetLength(0); i++)
     {
-        for (int j = 0; j < FirstArray.GetLength(0); j++)
+        for (int j = 0; j < SecondArray.GetLength(1); j++)
         {
-            for (int k = 0; k < SecondArray.GetLength(1); k++)
+            for (int k = 0; k < FirstArray.GetLength(1); k++)
             {
-                matrix[i, k] = FirstArray[i, j] * SecondArray
+                matrix[i, j] += FirstArray[i, k] * SecondArray[k, j];
             }
+            
         }
     }
+    return matrix;
+}
+
+Console.Write("Введите количество строк первого массива: ");
+int numbersOfLines = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов первого массива: ");
+int numbersOfColumns = Convert.ToInt32(Console.ReadLine());
+int[,] FirstArray = Create2DArray(numbersOfLines, numbersOfColumns);
+
+Console.Write("Введите количество строк второго массива: ");
+int numbersOfLines2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов второго массива: ");
+int numbersOfColumns2 = Convert.ToInt32(Console.ReadLine());
+int[,] SecondArray = Create2DArray(numbersOfLines2, numbersOfColumns2);
+
+if (FirstArray.GetLength(1) == SecondArray.GetLength(0))
+{
+    Print2DArray(FirstArray);
+    Console.WriteLine();
+    Print2DArray(SecondArray);
+    Console.WriteLine();
+
+    int[,] matrix = MatrixMultiplication(FirstArray, SecondArray);
+    Console.WriteLine();
+    Console.WriteLine("Результат произведения двух матриц");
+    Print2DArray(matrix);
+}
+else
+{
+    Console.WriteLine("Матрицы не согласованы!");
 }
