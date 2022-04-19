@@ -4,16 +4,16 @@
     M = 4; N = 8. -> "8, 7, 6, 7"
 */
 
-void PrintIntegers(int n, int m)
+void PrintIntegers(int m, int n)
 {
-    if (n<=m)
+    if (n >= m)
     {
         Console.Write($"{n} ");
-        PrintIntegers(n+1, m);
+        PrintIntegers(m, n-1);
     }
     else
     {
         return;
     }
 }
-PrintIntegers(4, 8);
+PrintIntegers(1, 30);
